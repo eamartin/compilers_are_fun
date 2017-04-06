@@ -72,6 +72,7 @@ class Paren(Op):
     @classmethod
     def match(cls, expr):
         if expr[0] == '(' and expr[-1] == ')':
+            # make sure there are no open parens
             count = 0
             for symb in expr[1:-1]:
                 if symb == '(':
@@ -196,7 +197,6 @@ def main(inp):
     res = cfunc()
 
     print('%s = %s' % (expr, res))
-
 
 if __name__ == '__main__':
     main(sys.argv[1])
